@@ -19,4 +19,5 @@ class Product(Base):
     price = Column(DECIMAL(precision=10, scale=2), CheckConstraint('price > 0'))
     quantity = Column(Integer, CheckConstraint('quantity > 0'))
     category_id = Column(Integer, ForeignKey('categories.id'), nullable=False)
+    description = Column(String(50), nullable=True)
     categories = relationship('Category', back_populates='products')
